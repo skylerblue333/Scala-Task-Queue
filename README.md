@@ -1,0 +1,1 @@
+# Scala-Task-Queue\n\n## Overview\nEnterprise-grade task queue implementation in Scala.\n\n## Quick Start (1-Click Build)\n\n```bash\ngit clone https://github.com/skylerblue333/Scala-Task-Queue.git\ncd Scala-Task-Queue\n# Build instructions depend on the language\n```\n
