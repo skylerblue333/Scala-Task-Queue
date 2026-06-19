@@ -8,7 +8,13 @@ def test_health():
     assert response.status_code == 200
     assert response.json()["status"] == "healthy"
 
-def test_process():
-    response = client.post("/api/v1/process", json={"data": {"key": "value"}})
-    assert response.status_code == 200
-    assert response.json()["status"] == "accepted"
+def test_anomaly_detected():
+    r = client.post("/api/v1/analyze", json={"metric": "cpu", "value": 99.5, "threshold": 80.0})
+    assert r.status_code == 200
+    assert r.json()["is_anomaly"] == True
+
+def test_no_anomaly():
+    r = client.post("/api/v1/analyze", json={"metric": "cpu", "value": 50.0, "threshold": 80.0})
+    assert r.status_code == 200
+    assert r.json()["is_anomaly"] == False
+

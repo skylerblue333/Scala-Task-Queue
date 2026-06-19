@@ -1,1 +1,0 @@
-// Starting Scala-Task-Queue service\n
